@@ -1,6 +1,8 @@
+
 # Packet39 VR Crane Training Demo for XRTerra
 **Experience Design Document**  
 Version 1.0
+Team members: Steve Krueger, Amanda Vasconcelos, Xinyun (Shirene) Cao
 
 ___
 
