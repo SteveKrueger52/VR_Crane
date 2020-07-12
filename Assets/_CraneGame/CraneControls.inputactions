@@ -1,0 +1,266 @@
+{
+    "name": "CraneControls",
+    "maps": [
+        {
+            "name": "JoystickTesting",
+            "id": "c1f6f9d4-c085-4e9b-9de4-ce78476bc98a",
+            "actions": [
+                {
+                    "name": "RotateCrane",
+                    "type": "PassThrough",
+                    "id": "c3e88152-7560-40e2-8969-0a8f5d669fe2",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotateBoom",
+                    "type": "PassThrough",
+                    "id": "cb3f6271-32a1-495b-bbf7-45b239567a48",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ExtendBoom",
+                    "type": "PassThrough",
+                    "id": "df660ded-c583-4a32-8f07-42df9646e1c4",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ExtendChain",
+                    "type": "PassThrough",
+                    "id": "7fae8a44-2c51-45de-96f2-b50bd2673e24",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7f16e88d-61bc-446c-b633-8193cefd67ef",
+                    "path": "<Gamepad>/leftStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCrane",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b4736450-5473-4952-892a-9bf14d4b0efc",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCrane",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard A/D",
+                    "id": "f9a8a20a-1260-4640-a7c4-cef8c5fbf59c",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCrane",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "f4dfc691-12b6-42dd-bf63-2f27354c2210",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCrane",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "2398bc03-42f8-4fea-88ce-788a1031f245",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCrane",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "16f0ba3d-8a30-4632-b31f-ad222925a38f",
+                    "path": "<Gamepad>/rightStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e941fb1-5513-433b-b698-0dcef2e44adb",
+                    "path": "<OculusTouchController>{RightHand}/thumbstick/Y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard Up/Down",
+                    "id": "f2347082-2e54-4a2b-8aa0-e33991e46ed5",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateBoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "f60e1a38-9b12-4f69-8d7b-48b615f08569",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "af1a89a8-0dea-4d78-9984-b763a88c2a0e",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "534c33e2-f72d-42ff-a050-9f7e47627858",
+                    "path": "<Gamepad>/leftStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4adaa398-d20f-4ec9-9ba3-db8ed0972e25",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard W/S",
+                    "id": "a4654eec-6301-4760-8fd1-429a55928497",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendBoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "ffdc514c-852d-4f4d-8738-68de080b021e",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "3a522fa8-cc97-499b-a16f-5e89d31b01eb",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendBoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b4130e0d-10ff-4b5f-95ad-756b8fb6e8e0",
+                    "path": "<Gamepad>/rightStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendChain",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ed71c01-8412-489a-8120-1b693df6ec17",
+                    "path": "<OculusTouchController>{RightHand}/thumbstick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendChain",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard Left/Right",
+                    "id": "df08f5da-5e73-4231-81a3-b5667c7f8d0f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendChain",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "7882776c-676d-40c3-b1ff-638ecdc2b225",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendChain",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "46a403dd-424d-4a14-a4ab-5bd3c40b70b4",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtendChain",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
