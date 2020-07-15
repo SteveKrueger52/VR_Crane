@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class CranePlayerController : MonoBehaviour
 {
+    public RaiseLowerRope raiselowerrope;
+
    // for Vertical axes, positive is always Up (away from the player)
    // For Horizontal axes, positive is always Right
    
@@ -32,5 +34,6 @@ public class CranePlayerController : MonoBehaviour
    public void OnExtendChain(InputValue value)
    {
       Debug.Log("Extend Chain: " + value.Get<float>());
+        raiselowerrope.OnLeverMove(value.Get<float>());
    }
 }
