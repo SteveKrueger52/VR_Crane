@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 4941498962219737009}
   - component: {fileID: 4941498962219737013}
   - component: {fileID: 4941498962219737010}
+  - component: {fileID: 6612360196614309077}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -525,3 +526,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_CustomReticle: {fileID: 0}
+--- !u!138 &6612360196614309077
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4941498962219736975}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1

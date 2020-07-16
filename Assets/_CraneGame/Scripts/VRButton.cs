@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class Button : MonoBehaviour
+public class VRButton : MonoBehaviour
 {
     public bool toggle; // Is this button a toggle
     public GameObject highlightVolume;
@@ -22,8 +22,6 @@ public class Button : MonoBehaviour
     {
         state = toggle && state;
         model.material = state ? onMaterial : offMaterial;
-        onActivate.AddListener(updateMaterial);
-        onDeactivate.AddListener(updateMaterial);
     }
 
     private void Update()
@@ -32,6 +30,7 @@ public class Button : MonoBehaviour
             Press();
         if (Input.GetKeyUp(KeyCode.Space))
             UnPress();
+        updateMaterial();
     }
 
     private void LateUpdate()

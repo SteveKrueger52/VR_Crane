@@ -111,7 +111,7 @@ public class CraneMovement : MonoBehaviour
                 telescopeVelocity = newValue * maxTelescopeVelocity;
                 break;
             
-            // Lever 3: Crane Slew
+            // Lever 3: Boom Pitch
             case 2:
                 Debug.Log("Rotating Boom");
                 pitchMotor.targetVelocity = newValue * maxPitchVelocity;
@@ -120,7 +120,7 @@ public class CraneMovement : MonoBehaviour
                     pitchSpring.targetPosition = boomPivot.angle;
                 break;
             
-            // Lever 4: Crane Slew
+            // Lever 4: Chain
             case 3:
                 Debug.Log("Working Chain");
                 chainVelocity = newValue * maxChainVelocity;

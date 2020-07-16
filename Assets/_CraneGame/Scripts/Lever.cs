@@ -9,8 +9,10 @@ public class Lever : MonoBehaviour
     public GameObject highlightVolume;
     public float deadzoneAngle;
 
+    private bool centered = true;
+
     [System.Serializable]
-    public class LeverEvent : UnityEvent<float>{}
+    public class LeverEvent : UnityEvent{}
     
     public LeverEvent onValueChanged;
     
@@ -52,6 +54,11 @@ public class Lever : MonoBehaviour
     public void Highlight(bool active)
     {
         highlightVolume.SetActive(active);
+    }
+
+    public void PullingLever(bool active)
+    {
+        centered = !active;
     }
     
     public void Recenter()

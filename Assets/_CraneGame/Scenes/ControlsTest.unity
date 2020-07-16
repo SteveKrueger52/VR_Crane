@@ -1279,16 +1279,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
-    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
-        type: 3}
-      propertyPath: onMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: eb6c6c680966f4eeabf2cdefefe19644, type: 2}
-    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
-        type: 3}
-      propertyPath: offMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 749c17a9383c74209b52e32c622cd1f8, type: 2}
     - target: {fileID: 4941498962219737010, guid: 951b6a2891a2944e4953f0d9754f12ed,
         type: 3}
       propertyPath: m_InteractionManager
