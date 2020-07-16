@@ -37,7 +37,6 @@ public class KinematicSeek : MonoBehaviour
             // Debug.Log("Seeking at Distance: " + distance);
             float force = distance < falloffDistance ? maxForce * (distance / falloffDistance) : maxForce;
             _rb.AddForce((seekTarget.transform.position - transform.position).normalized * force);
-            
         }
         _lr.SetPosition(0,transform.position);
         _lr.SetPosition(1,seekTarget.transform.position);

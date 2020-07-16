@@ -1,29 +1,45 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(HingeJoint))]
+[RequireComponent(typeof(LineRenderer))]
 public class Lever : MonoBehaviour
 {
+    public HingeJoint hinge;
+    public Rigidbody grabTarget;
     public GameObject highlightVolume;
     public float deadzoneAngle;
+
+    [System.Serializable]
+    public class LeverEvent : UnityEvent<float>{}
     
+    public LeverEvent onValueChanged;
     
-    private HingeJoint hinge;
     private float value;
+    private LineRenderer lr;
 
     private void Start()
     {
-        hinge = GetComponent<HingeJoint>();
         Highlight(false);
-
+        lr = GetComponent<LineRenderer>();
+        lr.useWorldSpace = true;
+        lr.SetPosition(0,hinge.transform.position);
+        lr.SetPosition(1,grabTarget.transform.position);
     }
 
     public void Update()
     {
+        float lastValue = value;
         // assume damping target is 0
         float percent = hinge.angle < 0 ? -hinge.angle / hinge.limits.max : hinge.angle / hinge.limits.min;
-            
         value = Mathf.Abs(hinge.angle) < deadzoneAngle ? 0 : percent;
+        lr.SetPosition(0,hinge.transform.position);
+        lr.SetPosition(1,grabTarget.transform.position);
         
+        // Active Input Values
+        if (lastValue != value)
+            for(int i = 0; i < onValueChanged.GetPersistentEventCount(); i++)
+                ((MonoBehaviour)onValueChanged.GetPersistentTarget(i)).SendMessage(onValueChanged.GetPersistentMethodName(i),value);
+
         // Debug.Log(ReadAxis());
     }
 
@@ -36,5 +52,11 @@ public class Lever : MonoBehaviour
     public void Highlight(bool active)
     {
         highlightVolume.SetActive(active);
+    }
+    
+    public void Recenter()
+    {
+        grabTarget.transform.parent = hinge.transform;
+        grabTarget.transform.localPosition = Vector3.zero;
     }
 }
