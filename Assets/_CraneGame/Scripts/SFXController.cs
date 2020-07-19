@@ -8,6 +8,8 @@ public class SFXController : MonoBehaviour
     public AudioSource PositiveBeepSound;
     public AudioSource NegativeBeepSound;
     public AudioSource ObjectDropped;
+    public AudioSource EngineOn;
+    public AudioSource EngineOff;
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +30,26 @@ public class SFXController : MonoBehaviour
 
     public void OnPutDown()
     {
-        ObjectPickUp.Play();
+        ObjectDropped.Play();
     }
 
     public void PositiveBeep()
     {
-        ObjectPickUp.Play();
+        PositiveBeepSound.Play();
     }
 
     public void NegativeBeep()
     {
-        ObjectPickUp.Play();
+        NegativeBeepSound.Play();
+    }
+
+    public void OnEngineStart()
+    {
+        EngineOn.Play();
+    }
+
+    public void OnEngineStop()
+    {
+        EngineOff.Play();
     }
 }
