@@ -10,6 +10,7 @@ public class SFXController : MonoBehaviour
     public AudioSource ObjectDropped;
     public AudioSource EngineOn;
     public AudioSource EngineOff;
+    public AudioSource EngineRunning;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +47,19 @@ public class SFXController : MonoBehaviour
     public void OnEngineStart()
     {
         EngineOn.Play();
+        StartCoroutine(WaitForLoop());
+
     }
 
     public void OnEngineStop()
     {
+        EngineRunning.Stop();
         EngineOff.Play();
+    }
+
+    IEnumerator WaitForLoop()
+    {
+        yield return new WaitForSeconds(EngineOn.clip.length);
+        EngineRunning.Play();
     }
 }
