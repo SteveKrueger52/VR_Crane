@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
-  - Interactor
+  - GroundTag
+  - GoalZone
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,8 @@ public class Magnet : MonoBehaviour
     public Boolean buttonPress=true; //unsure how you plan to have this value change, feel free to add a simple function to
                                 //change the value of this boolean when the button is pressed, or make this an external reference
     public GameObject hook;
+
+    public SFXController sfxController;
     public void OnTriggerEnter(Collider other)
     {
         if (buttonPress == true)
@@ -26,6 +28,8 @@ public class Magnet : MonoBehaviour
             if (other.tag == "Item") {
                 hook.gameObject.AddComponent<FixedJoint>()
                 .connectedBody=other.gameObject.GetComponent<Rigidbody>();
+                sfxController.OnPickedUp();
+                sfxController.PositiveBeep();
             }
         }
     }
