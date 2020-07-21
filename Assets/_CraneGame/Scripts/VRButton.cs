@@ -11,7 +11,8 @@ public class VRButton : MonoBehaviour
     public Material offMaterial;
     
     public bool state; // ignored for non-toggle buttons
-    public bool lastState;
+    
+    private bool lastState;
 
     [System.Serializable]
     public class ButtonEvent : UnityEvent {}
@@ -24,42 +25,32 @@ public class VRButton : MonoBehaviour
         model.material = state ? onMaterial : offMaterial;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            Press();
-        if (Input.GetKeyUp(KeyCode.Space))
-            UnPress();
-        updateMaterial();
-    }
-
     private void LateUpdate()
     {
-        lastState = state;
-    }
-
-    public void Highlight(bool active)
-    {
-        highlightVolume.SetActive(active);
-    }
-
-    public void Press()
-    {
-        lastState = state;
-        state = !toggle || !state;
-        if (lastState != state)
+        if (state != lastState)
+        {
             if (state)
                 onActivate.Invoke();
             else
                 onDeactivate.Invoke();
+        }
+        lastState = state;
     }
 
-    public void UnPress()
+    public void UpdateState(bool selecting)
     {
-        lastState = state;
-        state = toggle && state;
-        if (lastState != state)
-            onDeactivate.Invoke();
+        if (toggle)
+            state = selecting ? !state : state;
+        else
+            state = selecting;
+            
+        Debug.Log("CODE RAN! VALUE: " + toggle + " : " + selecting + " : " + lastState + "-> " + state);
+        updateMaterial();
+    }
+    
+    public void Highlight(bool active)
+    {
+        highlightVolume.SetActive(active);
     }
 
     private void updateMaterial()

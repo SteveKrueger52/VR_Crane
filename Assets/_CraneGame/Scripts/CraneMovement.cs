@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class CraneMovement : MonoBehaviour
 {
-    private readonly float DEFAULT_FORCE = 1000;
+    // private readonly float DEFAULT_FORCE = 1000;
     
     public HingeJoint slewPivot;
     public HingeJoint boomPivot;
