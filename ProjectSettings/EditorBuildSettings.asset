@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/_CraneGame/Scenes/Main Scene.unity
+    path: Assets/_CraneGame/Scenes/Auxillary Scenes/CraneTweaks.unity
     guid: aad85931a88704c4faaee10617b134b0
   - enabled: 1
     path: Assets/_CraneGame/Scenes/Auxillary Scenes/ControlsTest.unity
