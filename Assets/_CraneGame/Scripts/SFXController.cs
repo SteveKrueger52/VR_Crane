@@ -11,6 +11,7 @@ public class SFXController : MonoBehaviour
     public AudioSource EngineOn;
     public AudioSource EngineOff;
     public AudioSource EngineRunning;
+    public AudioSource ButtonPress;
     private bool startdelay=true;
 
     // Start is called before the first frame update
@@ -65,11 +66,12 @@ public class SFXController : MonoBehaviour
         StartCoroutine(Crossfade(EngineRunning, EngineOff, 1f));
     }
 
-    //IEnumerator WaitForLoop()
-    //{
-    //    yield return new WaitForSeconds(EngineOn.clip.length);
-    //    EngineRunning.Play();
-    //}
+    public void OnButtonPress()
+    {
+        ButtonPress.Play();
+    }
+
+   
     IEnumerator Crossfade(AudioSource fadeout, AudioSource fadein, float fadetime)
         {
             float startfadeoutVolume = fadeout.volume;

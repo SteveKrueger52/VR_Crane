@@ -9,6 +9,9 @@ public class VRButton : MonoBehaviour
     public Renderer model;
     public Material onMaterial;
     public Material offMaterial;
+
+    public SFXController sfxController;
+
     
     public bool state; // ignored for non-toggle buttons
     
@@ -43,6 +46,8 @@ public class VRButton : MonoBehaviour
             state = selecting ? !state : state;
         else
             state = selecting;
+        if (selecting)
+            sfxController.OnButtonPress();
             
         Debug.Log("CODE RAN! VALUE: " + toggle + " : " + selecting + " : " + lastState + "-> " + state);
         updateMaterial();
