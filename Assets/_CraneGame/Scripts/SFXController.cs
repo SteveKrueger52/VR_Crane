@@ -11,41 +11,42 @@ public class SFXController : MonoBehaviour
     public AudioSource EngineOn;
     public AudioSource EngineOff;
     public AudioSource EngineRunning;
+    private bool startdelay=true;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        startdelay = true;
+        StartCoroutine(StartDelayTime());
     }
 
     public void OnPickedUp()
     {
         //ObjectPickUp.Play();
-        ObjectPickUp.PlayOneShot(ObjectPickUp.clip);
+        if (startdelay = false)
+            ObjectPickUp.PlayOneShot(ObjectPickUp.clip);
+
     }
 
     public void OnPutDown()
     {
         //ObjectDropped.Play();
-        ObjectDropped.PlayOneShot(ObjectDropped.clip);
+        if (startdelay = false)
+            ObjectDropped.PlayOneShot(ObjectDropped.clip);
     }
 
     public void PositiveBeep()
     {
         //PositiveBeepSound.Play();
-        PositiveBeepSound.PlayOneShot(PositiveBeepSound.clip);
+        if (startdelay = false)
+            PositiveBeepSound.PlayOneShot(PositiveBeepSound.clip);
     }
 
     public void NegativeBeep()
     {
         //NegativeBeepSound.Play();
-        NegativeBeepSound.PlayOneShot(NegativeBeepSound.clip);
+        if (startdelay = false)
+            NegativeBeepSound.PlayOneShot(NegativeBeepSound.clip);
     }
 
     public void OnEngineStart()
@@ -96,5 +97,12 @@ public class SFXController : MonoBehaviour
             fadeout.volume = startfadeoutVolume;
 
         }
+
+    IEnumerator StartDelayTime()
+    {
+
+        yield return new WaitForSeconds(0.1f);
+        startdelay = false;
+    }
 
 }
