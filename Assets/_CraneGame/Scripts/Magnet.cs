@@ -1,57 +1,56 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Magnet : MonoBehaviour
 {
-    public Boolean buttonPress=true; //unsure how you plan to have this value change, feel free to add a simple function to
-                                //change the value of this boolean when the button is pressed, or make this an external reference
-    public GameObject hook;
+    public Rigidbody hook;
+    public List<PickUpObject> selected;
+    public PickUpObject attached;
 
     public SFXController sfxController;
+    
+    
     public void OnTriggerEnter(Collider other)
     {
-        if (buttonPress == true)
+        if (other.tag == "Item")
         {
-            // Debug.Log("true");
-            // // attachedObject = other.gameObject;
-            // if (other.tag == "Item") {
-            // //    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-            //     other.gameObject.transform.SetParent(this.transform);
-            //     // other.gameObject.transform.position = new Vector3(0f, 0f, 0f);
-            //     Debug.Log("Parented");
-            //     StartCoroutine(CheckFalse(other.gameObject)); 
-            // }
-            if (other.tag == "Item") {
-                hook.gameObject.AddComponent<FixedJoint>()
-                .connectedBody=other.gameObject.GetComponent<Rigidbody>();
-                sfxController.OnPickedUp();
-                sfxController.PositiveBeep();
-            }
+            selected.Add(other.gameObject.GetComponent<PickUpObject>());
+            other.gameObject.GetComponent<PickUpObject>().Highlight(true);
         }
     }
-
-    private void Update() {
-        if (buttonPress == false) {
-            FixedJoint joint = hook.gameObject.GetComponent<FixedJoint>();
-            Destroy(joint);
-        }
-    }
-    IEnumerator CheckFalse(GameObject attached)
+    
+    public void OnTriggerExit(Collider other)
     {
-        if (buttonPress == true) 
+        if (other.tag == "Item")
         {
-            yield return null;
-            Debug.Log("Still True");        }
-        if (buttonPress == false) 
-        {
-            attached.transform.SetParent(null);
-            attached.gameObject.GetComponent<Rigidbody>().useGravity = true;
-            Debug.Log("False, dropping item");
+            selected.Remove(other.gameObject.GetComponent<PickUpObject>());
+            other.gameObject.GetComponent<PickUpObject>().Highlight(false);
         }
     }
 
+    public void Pickup()
+    {
+        PickUpObject closest = null;
+        foreach (PickUpObject obj in selected)
+        {
+            if (closest != null &&
+                (closest.transform.position - hook.position).magnitude >
+                (obj.transform.position - hook.position).magnitude)
+                closest = obj;
+            else
+                closest = obj;
+        }
+
+        attached = closest;
+        attached.Attach(hook);
+
+        sfxController.OnPickedUp();
+        sfxController.PositiveBeep();
+    }
+
+    public void Drop()
+    {
+        attached.Attach(null);
+        attached = null;
+    }
 }
