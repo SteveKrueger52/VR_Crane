@@ -32,14 +32,14 @@ public class SFXController : MonoBehaviour
     public void OnPutDown()
     {
         //ObjectDropped.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             ObjectDropped.PlayOneShot(ObjectDropped.clip);
     }
 
     public void PositiveBeep()
     {
         //PositiveBeepSound.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             PositiveBeepSound.PlayOneShot(PositiveBeepSound.clip);
     }
 
@@ -68,7 +68,8 @@ public class SFXController : MonoBehaviour
 
     public void OnButtonPress()
     {
-        ButtonPress.Play();
+        if (startdelay == false)
+            ButtonPress.Play();
     }
 
    
