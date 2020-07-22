@@ -12,6 +12,9 @@ public class CraneMovement : MonoBehaviour
     public ConfigurableJoint chain;
 
     public Transform hookAnchor;
+    private bool _powered;
+    public bool powered { get; set; }
+    
 
     public float maxSlewVelocity;
     public float maxPitchVelocity;
@@ -59,39 +62,47 @@ public class CraneMovement : MonoBehaviour
 
     private void Update()
     {
-        // Steering for Boom Telescope
-        telescopeTarget += telescopeVelocity * Time.deltaTime;
-        // Enforce Limits
-        telescopeTarget = telescopeTarget > boomTelescope.linearLimit.limit
-            ? boomTelescope.linearLimit.limit : telescopeTarget;
-        telescopeTarget = telescopeTarget < -boomTelescope.linearLimit.limit
-            ? -boomTelescope.linearLimit.limit : telescopeTarget;
-        
-        // Steering for Chain Extension
-        chainLength += chainVelocity * Time.deltaTime;
-        chainLength = chainLength < minChainLength ? minChainLength : chainLength;
-        
-        lr.SetPosition(0,hookAnchor.position);
-        lr.SetPosition(1,chain.transform.position);
+        if (powered)
+        {
+            // Steering for Boom Telescope
+            telescopeTarget += telescopeVelocity * Time.deltaTime;
+            // Enforce Limits
+            telescopeTarget = telescopeTarget > boomTelescope.linearLimit.limit
+                ? boomTelescope.linearLimit.limit
+                : telescopeTarget;
+            telescopeTarget = telescopeTarget < -boomTelescope.linearLimit.limit
+                ? -boomTelescope.linearLimit.limit
+                : telescopeTarget;
+
+            // Steering for Chain Extension
+            chainLength += chainVelocity * Time.deltaTime;
+            chainLength = chainLength < minChainLength ? minChainLength : chainLength;
+
+            lr.SetPosition(0, hookAnchor.position);
+            lr.SetPosition(1, chain.transform.position);
+        }
     }
 
     private void FixedUpdate()
     {
-        // Slew Motor
-        slewPivot.motor = slewMotor;
+        if (powered)
+        {
+            // Slew Motor
+            slewPivot.motor = slewMotor;
         
-        // Pitch Motor - needs spring to stay upright
-        boomPivot.spring = pitchSpring;
-        boomPivot.motor = pitchMotor;
-        boomPivot.useMotor = !usingPitchSpring;
-        boomPivot.useSpring = usingPitchSpring;
+            // Pitch Motor - needs spring to stay upright
+            boomPivot.spring = pitchSpring;
+            boomPivot.motor = pitchMotor;
+            boomPivot.useMotor = !usingPitchSpring;
+            boomPivot.useSpring = usingPitchSpring;
         
-        // Telescope Motor - Configurable Joints are WEIRD
-        boomTelescope.targetPosition = new Vector3(0,0,telescopeTarget);
+            // Telescope Motor - Configurable Joints are WEIRD
+            boomTelescope.targetPosition = new Vector3(0,0,telescopeTarget);
         
-        // Extend Chain
-        chainLimit.limit = chainLength;
-        chain.linearLimit = chainLimit;
+            // Extend Chain
+            chainLimit.limit = chainLength;
+            chain.linearLimit = chainLimit;
+        }
     }
 
     // Updates Driving Forces in Crane Joints with Active Input Changes

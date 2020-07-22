@@ -5295,10 +5295,50 @@ PrefabInstance:
       propertyPath: sfxController
       value: 
       objectReference: {fileID: 1868930011}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: debugPress.m_Id
+      value: 13886512-92f1-44c8-a993-0df9f562a2eb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: debugPress.m_Name
+      value: Debug Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 70050624}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_powered
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 70050624}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_powered
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605808843303351107, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2605808843303351109, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3437215647564374060, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
         type: 3}
@@ -5310,6 +5350,11 @@ PrefabInstance:
       propertyPath: sfxController
       value: 
       objectReference: {fileID: 1868930011}
+    - target: {fileID: 3868375020596261423, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 522805461}
     - target: {fileID: 4736701648245686086, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -5395,6 +5440,11 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7262393263554698832, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 522805461}
     - target: {fileID: 7357292332145538589, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
         type: 3}
       propertyPath: m_IsKinematic
@@ -5405,6 +5455,16 @@ PrefabInstance:
       propertyPath: sfxController
       value: 
       objectReference: {fileID: 1868930011}
+    - target: {fileID: 8453186070833962812, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: debugPress.m_Id
+      value: 38eb2cb9-aac5-4f74-b704-3eac38105a2d
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453186070833962812, guid: 60b9d8f1f9ec2472e929943ac81a2b17,
+        type: 3}
+      propertyPath: debugPress.m_Name
+      value: Debug Press
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6969894685902223858, guid: 60b9d8f1f9ec2472e929943ac81a2b17, type: 3}
     - {fileID: 3592752023502181773, guid: 60b9d8f1f9ec2472e929943ac81a2b17, type: 3}
