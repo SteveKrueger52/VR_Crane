@@ -24,7 +24,7 @@ public class SFXController : MonoBehaviour
     public void OnPickedUp()
     {
         //ObjectPickUp.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             ObjectPickUp.PlayOneShot(ObjectPickUp.clip);
 
     }
@@ -46,7 +46,7 @@ public class SFXController : MonoBehaviour
     public void NegativeBeep()
     {
         //NegativeBeepSound.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             NegativeBeepSound.PlayOneShot(NegativeBeepSound.clip);
     }
 

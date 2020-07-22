@@ -1217,6 +1217,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!1 &281828844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8902072214338489546, guid: 2c83ff01f08ec174b8cea933b94e4a27,
+    type: 3}
+  m_PrefabInstance: {fileID: 1301647492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &313342852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3924,7 +3930,7 @@ GameObject:
   - component: {fileID: 1237436031}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: GroundTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4586,6 +4592,11 @@ PrefabInstance:
       propertyPath: sfxController
       value: 
       objectReference: {fileID: 1868930011}
+    - target: {fileID: 621300334640589832, guid: a3293d5e75d2a784c8a7e7df350abf40,
+        type: 3}
+      propertyPath: particlesys
+      value: 
+      objectReference: {fileID: 281828844}
     - target: {fileID: 621300334640589873, guid: a3293d5e75d2a784c8a7e7df350abf40,
         type: 3}
       propertyPath: m_Name
