@@ -101,19 +101,19 @@ public class CraneMovement : MonoBehaviour
         {
             // Lever 1: Crane Slew
             case 0:
-                Debug.Log("Rotating Crane Body");
+                //Debug.Log("Rotating Crane Body");
                 slewMotor.targetVelocity = newValue * maxSlewVelocity;
                 break;
             
             // Lever 2: Boom Telescope
             case 1:
-                Debug.Log("Telescoping Boom");
+                //Debug.Log("Telescoping Boom");
                 telescopeVelocity = newValue * maxTelescopeVelocity;
                 break;
             
             // Lever 3: Boom Pitch
             case 2:
-                Debug.Log("Rotating Boom");
+                //Debug.Log("Rotating Boom");
                 pitchMotor.targetVelocity = newValue * maxPitchVelocity;
                 usingPitchSpring = Mathf.Approximately(newValue, 0f);
                 if (usingPitchSpring)
@@ -122,7 +122,7 @@ public class CraneMovement : MonoBehaviour
             
             // Lever 4: Chain
             case 3:
-                Debug.Log("Working Chain");
+                //Debug.Log("Working Chain");
                 chainVelocity = newValue * maxChainVelocity;
                 break;
         }

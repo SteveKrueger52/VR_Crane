@@ -1115,6 +1115,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977587, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
         type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1394,40 +1399,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1484460986500541276, guid: 951b6a2891a2944e4953f0d9754f12ed,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484460986500541276, guid: 951b6a2891a2944e4953f0d9754f12ed,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484460986500541276, guid: 951b6a2891a2944e4953f0d9754f12ed,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379641422245227504, guid: 951b6a2891a2944e4953f0d9754f12ed,
-        type: 3}
-      propertyPath: m_AutoConfigureConnectedAnchor
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4941498961037977586, guid: 951b6a2891a2944e4953f0d9754f12ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.003
       objectReference: {fileID: 0}
     - target: {fileID: 4941498961037977586, guid: 951b6a2891a2944e4953f0d9754f12ed,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.243
       objectReference: {fileID: 0}
     - target: {fileID: 4941498961037977586, guid: 951b6a2891a2944e4953f0d9754f12ed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.998
       objectReference: {fileID: 0}
     - target: {fileID: 4941498961037977586, guid: 951b6a2891a2944e4953f0d9754f12ed,
         type: 3}
@@ -1474,8 +1459,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: debugPress.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839906478}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_isKinematic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839906478}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_isKinematic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: debugPress.m_Id
+      value: ac4e7c12-b6a0-4dc5-ba08-fcfb00c5ceb7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: debugPress.m_Name
+      value: Debug Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: debugPress.m_SingletonActionBindings.Array.data[0].m_Id
+      value: da58f514-8fb2-4430-b6d6-ab5b21adb5db
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: debugPress.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Debug Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961037977589, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: debugPress.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/space
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941498961453328628, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: m_Name
+      value: Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130860191327577753, guid: 951b6a2891a2944e4953f0d9754f12ed,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1519895487}
     m_RemovedComponents:
-    - {fileID: 1679699268, guid: 951b6a2891a2944e4953f0d9754f12ed, type: 3}
+    - {fileID: 1301542203368495110, guid: 951b6a2891a2944e4953f0d9754f12ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 951b6a2891a2944e4953f0d9754f12ed, type: 3}
 --- !u!1001 &5509949652045951531
 PrefabInstance:
