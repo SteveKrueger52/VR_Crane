@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_CraneGame/Scenes/Auxillary Scenes/BasicVRTest.unity
     guid: 9caf57b1e9f7745bd90fc9c8d5d679cc
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0f01fee6e699f45abbd4545a6bbd4a71,
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 62f31c741a9c28442b271b0501999335,
       type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4f7b69e6ee8344ab88e411323889ad93,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c42ea840876867e47aeaaa6b05044f56,
       type: 2}
