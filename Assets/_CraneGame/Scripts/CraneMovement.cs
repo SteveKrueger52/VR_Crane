@@ -13,8 +13,18 @@ public class CraneMovement : MonoBehaviour
 
     public Transform hookAnchor;
     private bool _powered;
-    public bool powered { get; set; }
-    
+
+    public bool powered
+    {
+        get { return _powered; }
+        set
+        {
+            if (!value)
+                StopInput();
+            _powered = value;
+        }
+    }
+
 
     public float maxSlewVelocity;
     public float maxPitchVelocity;
@@ -62,8 +72,6 @@ public class CraneMovement : MonoBehaviour
 
     private void Update()
     {
-        if (powered)
-        {
             // Steering for Boom Telescope
             telescopeTarget += telescopeVelocity * Time.deltaTime;
             // Enforce Limits
@@ -80,13 +88,10 @@ public class CraneMovement : MonoBehaviour
 
             lr.SetPosition(0, hookAnchor.position);
             lr.SetPosition(1, chain.transform.position);
-        }
     }
 
     private void FixedUpdate()
     {
-        if (powered)
-        {
             // Slew Motor
             slewPivot.motor = slewMotor;
         
@@ -102,40 +107,54 @@ public class CraneMovement : MonoBehaviour
             // Extend Chain
             chainLimit.limit = chainLength;
             chain.linearLimit = chainLimit;
-        }
     }
 
     // Updates Driving Forces in Crane Joints with Active Input Changes
     public void OnInputChanged(int lever_id, float newValue)
     {
-        switch (lever_id)
+        if (powered)
         {
-            // Lever 1: Crane Slew
-            case 0:
-                //Debug.Log("Rotating Crane Body");
-                slewMotor.targetVelocity = newValue * maxSlewVelocity;
-                break;
+            switch (lever_id)
+            {
+                // Lever 1: Crane Slew
+                case 0:
+                    //Debug.Log("Rotating Crane Body");
+                    slewMotor.targetVelocity = newValue * maxSlewVelocity;
+                    break;
             
-            // Lever 2: Boom Telescope
-            case 1:
-                //Debug.Log("Telescoping Boom");
-                telescopeVelocity = newValue * maxTelescopeVelocity;
-                break;
+                // Lever 2: Boom Telescope
+                case 1:
+                    //Debug.Log("Telescoping Boom");
+                    telescopeVelocity = newValue * maxTelescopeVelocity;
+                    break;
             
-            // Lever 3: Boom Pitch
-            case 2:
-                //Debug.Log("Rotating Boom");
-                pitchMotor.targetVelocity = newValue * maxPitchVelocity;
-                usingPitchSpring = Mathf.Approximately(newValue, 0f);
-                if (usingPitchSpring)
-                    pitchSpring.targetPosition = boomPivot.angle;
-                break;
+                // Lever 3: Boom Pitch
+                case 2:
+                    //Debug.Log("Rotating Boom");
+                    pitchMotor.targetVelocity = newValue * maxPitchVelocity;
+                    usingPitchSpring = Mathf.Approximately(newValue, 0f);
+                    if (usingPitchSpring)
+                        pitchSpring.targetPosition = boomPivot.angle;
+                    break;
             
-            // Lever 4: Chain
-            case 3:
-                //Debug.Log("Working Chain");
-                chainVelocity = newValue * maxChainVelocity;
-                break;
+                // Lever 4: Chain
+                case 3:
+                    //Debug.Log("Working Chain");
+                    chainVelocity = newValue * maxChainVelocity;
+                    break;
+            }
         }
+        else
+            StopInput();
+    }
+
+    private void StopInput()
+    {
+        slewMotor.targetVelocity = 0;
+        telescopeVelocity = 0f;
+        pitchMotor.targetVelocity = 0f;
+        usingPitchSpring = true;
+        pitchSpring.targetPosition = boomPivot.angle;
+        chainVelocity = 0f;
     }
 }

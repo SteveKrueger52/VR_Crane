@@ -13,4 +13,9 @@ public class ScreenText : MonoBehaviour
 
     public string startingText;
     private void OnValidate() { text = startingText; }
+
+    public void ChangeColor(Color color)
+    {
+        _text.color = color;
+    }
 }
