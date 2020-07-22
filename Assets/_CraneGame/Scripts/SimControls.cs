@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SimControls : MonoBehaviour
 {
@@ -29,7 +30,12 @@ public class SimControls : MonoBehaviour
         StartCoroutine(Reset());
     }
 
-    IEnumerator Reset() { yield return Blackout(1); }
+    IEnumerator Reset()
+    {
+        yield return Blackout(1);
+        SceneManager.LoadScene(0);
+    }
+    
     IEnumerator Blackout(float desiredAlpha, float fadeTime = FADE_TIME)
     {
         Color fadeColor = blackout.material.color;
