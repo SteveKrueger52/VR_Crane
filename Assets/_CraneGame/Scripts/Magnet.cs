@@ -6,10 +6,6 @@ public class Magnet : MonoBehaviour
     public Rigidbody hook;
     public List<PickUpObject> selected;
     public PickUpObject attached;
-
-    public SFXController sfxController;
-    
-    
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Item")
@@ -46,8 +42,8 @@ public class Magnet : MonoBehaviour
         if (attached != null)
             attached.Attach(hook);
 
-        sfxController.OnPickedUp();
-        sfxController.PositiveBeep();
+        SFXController.Instance.OnPickedUp();
+        SFXController.Instance.PositiveBeep();
     }
 
     public void Drop()

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
 {
-    public SFXController sfxController;
     public Rigidbody anchor;
     public GameObject highlight;
 
@@ -37,14 +36,14 @@ public class PickUpObject : MonoBehaviour
     {
         if (collision.gameObject.tag == "GroundTag")
         {
-            sfxController.OnPutDown();
-            sfxController.NegativeBeep();
+            SFXController.Instance.OnPutDown();
+            SFXController.Instance.NegativeBeep();
         }
         else if (collision.gameObject.tag == "GoalZone")
         {
 
-            sfxController.OnPutDown();
-            sfxController.PositiveBeep();
+            SFXController.Instance.OnPutDown();
+            SFXController.Instance.PositiveBeep();
             ParticleSystem ps = particlesys.GetComponent<ParticleSystem>();
             var main = ps.main;
             main.startColor = new Color(0,255,0,1);

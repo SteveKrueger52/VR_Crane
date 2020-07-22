@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
-
-public class SFXController : MonoBehaviour
+public class SFXController : Singleton<SFXController>
 {
     public AudioSource ObjectPickUp;
     public AudioSource PositiveBeepSound;
