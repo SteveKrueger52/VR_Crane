@@ -39,14 +39,14 @@ public class SFXController : MonoBehaviour
     public void PositiveBeep()
     {
         //PositiveBeepSound.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             PositiveBeepSound.PlayOneShot(PositiveBeepSound.clip);
     }
 
     public void NegativeBeep()
     {
         //NegativeBeepSound.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             NegativeBeepSound.PlayOneShot(NegativeBeepSound.clip);
     }
 
@@ -68,6 +68,7 @@ public class SFXController : MonoBehaviour
 
     public void OnButtonPress()
     {
+        if (startdelay == false)
         ButtonPress.Play();
     }
 
