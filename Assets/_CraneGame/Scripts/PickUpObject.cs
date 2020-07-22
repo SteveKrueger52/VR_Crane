@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PickUpObject : MonoBehaviour
 {
     public SFXController sfxController;
     public Rigidbody anchor;
     public GameObject highlight;
+
+    public GameObject particlesys;
+
 
     private SpringJoint spring;
     private bool attached;
@@ -14,6 +18,7 @@ public class PickUpObject : MonoBehaviour
     private void Start()
     {
         spring = GetComponent<SpringJoint>();
+
     }
 
     public void Attach(Rigidbody other)
@@ -37,8 +42,22 @@ public class PickUpObject : MonoBehaviour
         }
         else if (collision.gameObject.tag == "GoalZone")
         {
+
             sfxController.OnPutDown();
             sfxController.PositiveBeep();
+            ParticleSystem ps = particlesys.GetComponent<ParticleSystem>();
+            var main = ps.main;
+            main.startColor = new Color(0,255,0,1);
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "GoalZone")
+        {
+            ParticleSystem ps = particlesys.GetComponent<ParticleSystem>();
+            var main = ps.main;
+            main.startColor = new Color(255, 255, 255, 1);
         }
     }
 }
