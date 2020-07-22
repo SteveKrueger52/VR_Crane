@@ -103,7 +103,6 @@ public class SFXController : MonoBehaviour
 
     IEnumerator StartDelayTime()
     {
-
         yield return new WaitForSeconds(0.1f);
         startdelay = false;
     }
