@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class VRButton : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class VRButton : MonoBehaviour
     public Renderer model;
     public Material onMaterial;
     public Material offMaterial;
+
+    public SFXController sfxController;
     
     public bool state; // ignored for non-toggle buttons
-    
     private bool lastState;
+
+    public InputAction debugPress;
 
     [System.Serializable]
     public class ButtonEvent : UnityEvent {}
@@ -23,8 +27,25 @@ public class VRButton : MonoBehaviour
     {
         state = toggle && state;
         model.material = state ? onMaterial : offMaterial;
+        debugPress.Enable();
+        debugPress.started += ctx => Press(ctx);
+        debugPress.canceled += ctx => Unpress(ctx);
+        debugPress.performed += ctx => Unpress(ctx);
+
     }
 
+    private void Press(InputAction.CallbackContext ctx)
+    {
+        UpdateState(true);
+        Debug.Log("Pressed");
+    }
+    
+    private void Unpress(InputAction.CallbackContext ctx)
+    {
+        UpdateState(false);
+        Debug.Log("Released: " + (ctx.performed ? "Performed" : "Canceled"));
+    }
+    
     private void LateUpdate()
     {
         if (state != lastState)
@@ -33,7 +54,8 @@ public class VRButton : MonoBehaviour
                 onActivate.Invoke();
             else
                 onDeactivate.Invoke();
-        }
+        } 
+        
         lastState = state;
     }
 
@@ -43,18 +65,24 @@ public class VRButton : MonoBehaviour
             state = selecting ? !state : state;
         else
             state = selecting;
+        
+        if (selecting)
+            sfxController.OnButtonPress();
             
-        Debug.Log("CODE RAN! VALUE: " + toggle + " : " + selecting + " : " + lastState + "-> " + state);
+        // Debug.Log("CODE RAN! VALUE: " + toggle + " : " + selecting + " : " + lastState + "-> " + state);
         updateMaterial();
-    }
-    
-    public void Highlight(bool active)
-    {
-        highlightVolume.SetActive(active);
+        
+        // Value Actually Changed
     }
 
     private void updateMaterial()
     {
         model.material = state ? onMaterial : offMaterial;
     }
+
+    public void Highlight(bool active)
+    {
+        highlightVolume.SetActive(active);
+    }
+    
 }

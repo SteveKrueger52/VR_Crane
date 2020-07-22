@@ -27,7 +27,7 @@ public class ButtonInteractable : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Collider = GetComponentInChildren<Collider>();
-        m_StartPosition = transform.position;
+        m_StartPosition = transform.localPosition;
     }
 
     void FixedUpdate()
@@ -35,7 +35,7 @@ public class ButtonInteractable : MonoBehaviour
         Vector3 worldAxis = transform.TransformDirection(Axis);
         Vector3 end = transform.position + worldAxis * MaxDistance;
         
-        float m_CurrentDistance = (transform.position - m_StartPosition).magnitude;
+        float m_CurrentDistance = (transform.localPosition - m_StartPosition).magnitude;
         RaycastHit info;
 
         float move = 0.0f;
@@ -57,7 +57,7 @@ public class ButtonInteractable : MonoBehaviour
 
         float newDistance = Mathf.Clamp(m_CurrentDistance + move, 0, MaxDistance);
 
-        m_Rigidbody.position = m_StartPosition + worldAxis * newDistance;
+        m_Rigidbody.position = (Vector3)(transform.localToWorldMatrix * m_StartPosition) + worldAxis * newDistance;
 
         if (!m_Pressed && Mathf.Approximately(newDistance, MaxDistance))
         {//was just pressed

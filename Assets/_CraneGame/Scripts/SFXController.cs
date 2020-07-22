@@ -11,6 +11,7 @@ public class SFXController : MonoBehaviour
     public AudioSource EngineOn;
     public AudioSource EngineOff;
     public AudioSource EngineRunning;
+    public AudioSource ButtonPress;
     private bool startdelay=true;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class SFXController : MonoBehaviour
     public void OnPickedUp()
     {
         //ObjectPickUp.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             ObjectPickUp.PlayOneShot(ObjectPickUp.clip);
 
     }
@@ -31,21 +32,21 @@ public class SFXController : MonoBehaviour
     public void OnPutDown()
     {
         //ObjectDropped.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             ObjectDropped.PlayOneShot(ObjectDropped.clip);
     }
 
     public void PositiveBeep()
     {
         //PositiveBeepSound.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             PositiveBeepSound.PlayOneShot(PositiveBeepSound.clip);
     }
 
     public void NegativeBeep()
     {
         //NegativeBeepSound.Play();
-        if (startdelay = false)
+        if (startdelay == false)
             NegativeBeepSound.PlayOneShot(NegativeBeepSound.clip);
     }
 
@@ -65,11 +66,13 @@ public class SFXController : MonoBehaviour
         StartCoroutine(Crossfade(EngineRunning, EngineOff, 1f));
     }
 
-    //IEnumerator WaitForLoop()
-    //{
-    //    yield return new WaitForSeconds(EngineOn.clip.length);
-    //    EngineRunning.Play();
-    //}
+    public void OnButtonPress()
+    {
+        if (startdelay == false)
+            ButtonPress.Play();
+    }
+
+   
     IEnumerator Crossfade(AudioSource fadeout, AudioSource fadein, float fadetime)
         {
             float startfadeoutVolume = fadeout.volume;
@@ -100,7 +103,6 @@ public class SFXController : MonoBehaviour
 
     IEnumerator StartDelayTime()
     {
-
         yield return new WaitForSeconds(0.1f);
         startdelay = false;
     }

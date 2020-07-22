@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_CraneGame/Scenes/Auxillary Scenes/CraneTweaks.unity
     guid: aad85931a88704c4faaee10617b134b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/_CraneGame/Scenes/Auxillary Scenes/ControlsTest.unity
     guid: d732ffac568df4e9ca01328f719105f0
   - enabled: 0
     path: Assets/_CraneGame/Scenes/Auxillary Scenes/BasicVRTest.unity
     guid: 9caf57b1e9f7745bd90fc9c8d5d679cc
+  - enabled: 0
+    path: Assets/_CraneGame/Scenes/Auxillary Scenes/ParticlesFX.unity
+    guid: 2c542144e8e40a444b777ead2b3c0e3a
+  - enabled: 1
+    path: Assets/_CraneGame/Scenes/mainscene.unity
+    guid: 58eaed045cd561945883e195c18cf64b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 62f31c741a9c28442b271b0501999335,
       type: 2}

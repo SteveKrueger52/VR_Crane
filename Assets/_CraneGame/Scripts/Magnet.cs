@@ -42,15 +42,22 @@ public class Magnet : MonoBehaviour
         }
 
         attached = closest;
-        attached.Attach(hook);
 
-        sfxController.OnPickedUp();
-        sfxController.PositiveBeep();
+        if (attached != null)
+        {
+            attached.Attach(hook);
+            sfxController.OnPickedUp();
+            sfxController.PositiveBeep();
+        }
+            
     }
 
     public void Drop()
     {
-        attached.Attach(null);
-        attached = null;
+        if (attached != null)
+        {
+            attached.Attach(null);
+            attached = null;
+        }
     }
 }
