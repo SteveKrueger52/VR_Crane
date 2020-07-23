@@ -40,7 +40,7 @@ public class SimControls : MonoBehaviour
         if (timerActive && !simOver)
             timeSim += Time.deltaTime;
         int m  = Mathf.FloorToInt(timeSim / 60);
-        int s  = Mathf.FloorToInt(timeSim) % 60;
+        float s  = Mathf.FloorToInt(timeSim) % 60;
         text = string.Format("{0:F0}:{1:F3}",m,s) + (timerActive ? "" : simOver ? "" : "\n -- Timer Paused --");
         
         if (simStarted)
