@@ -47,7 +47,8 @@ public class PickUpObject : MonoBehaviour
             sfxController.PositiveBeep();
             ParticleSystem ps = particlesys.GetComponent<ParticleSystem>();
             var main = ps.main;
-            main.startColor = new Color(0,255,0,1);
+            main.startColor = Color.green;
+            SimControls.GoalObtained = true;
         }
     }
 
@@ -57,7 +58,8 @@ public class PickUpObject : MonoBehaviour
         {
             ParticleSystem ps = particlesys.GetComponent<ParticleSystem>();
             var main = ps.main;
-            main.startColor = new Color(255, 255, 255, 1);
+            main.startColor = Color.white;
+            SimControls.GoalObtained = false;
         }
     }
 }

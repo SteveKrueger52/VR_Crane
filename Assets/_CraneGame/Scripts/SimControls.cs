@@ -4,18 +4,51 @@ using UnityEngine.SceneManagement;
 
 public class SimControls : MonoBehaviour
 {
+    public static bool GoalObtained;
+    
     public Renderer blackout;
     public GameObject pauseFade;
+    public ScreenText timer;
     private const float FADE_TIME = 1;
 
     public SpriteRenderer PauseImage;
     public Sprite PauseIcon;
     public Sprite PlayIcon;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private float timeSim;
+    public bool timerActive { get; set; }
+    public bool simStarted { get; set; }
+
+    private bool _simOver;
+    public bool simOver
     {
-        StartCoroutine(Blackout(0));
+        get { return _simOver; }
+        set
+        {
+            _simOver = value && GoalObtained;
+            // Only shows as finished if the box is in contact with the goal
+        }
+    }
+
+    // Start is called before the first frame update
+    private void Start() { StartCoroutine(Blackout(0)); }
+    public void ResetScene() { StartCoroutine(Reset()); }
+
+    private void Update()
+    {
+        string text;
+        if (timerActive && !simOver)
+            timeSim += Time.deltaTime;
+        int m  = Mathf.FloorToInt(timeSim / 60);
+        int s  = Mathf.FloorToInt(timeSim) % 60;
+        int ms = Mathf.FloorToInt(timeSim * 1000) % 1000;
+        text = m + ":" + s + "." + ms + (timerActive ? "" : simOver ? "" : "\n -- Timer Paused --");
+        
+        if (simStarted)
+            timer.text = text;
+        
+        if (simOver)
+            timer.ChangeColor(Color.green);
     }
 
     public void Pause(bool paused)
@@ -23,13 +56,9 @@ public class SimControls : MonoBehaviour
         Time.timeScale = paused ? 0 : 1;
         pauseFade.SetActive(paused);
         PauseImage.sprite = paused ? PlayIcon : PauseIcon;
+        timerActive = !paused && simStarted;
     }
     
-    public void ResetScene()
-    {
-        StartCoroutine(Reset());
-    }
-
     IEnumerator Reset()
     {
         yield return Blackout(1);

@@ -16,7 +16,7 @@ public class VRButton : MonoBehaviour
     public bool state; // ignored for non-toggle buttons
     private bool lastState;
 
-    public InputAction debugPress;
+    // public InputAction debugPress;
 
     [System.Serializable]
     public class ButtonEvent : UnityEvent {}
@@ -27,10 +27,10 @@ public class VRButton : MonoBehaviour
     {
         state = toggle && state;
         model.material = state ? onMaterial : offMaterial;
-        debugPress.Enable();
-        debugPress.started += ctx => Press(ctx);
-        debugPress.canceled += ctx => Unpress(ctx);
-        debugPress.performed += ctx => Unpress(ctx);
+//        debugPress.Enable();
+//        debugPress.started += ctx => Press(ctx);
+//        debugPress.canceled += ctx => Unpress(ctx);
+//        debugPress.performed += ctx => Unpress(ctx);
 
     }
 
